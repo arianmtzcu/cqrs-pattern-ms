@@ -1,0 +1,270 @@
+{
+	"info": {
+		"_postman_id": "0f92a10f-423b-4c43-a7b0-77ad2274673e",
+		"name": "BANK-ACCOUNT-CQRS-EXAMPLE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12341669"
+	},
+	"item": [
+		{
+			"name": "cmd-api",
+			"item": [
+				{
+					"name": ".../openBankAccount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountHolder\":\"Felicia Doe\",\r\n    \"accountType\":\"SAVINGS\",\r\n    \"openingBalance\": 99\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/v1/openBankAccount",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"openBankAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": ".../depositFunds/{id}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\":100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/v1/depositFunds/94e3b1f2-4118-4e99-819b-b191286102e0",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"depositFunds",
+								"94e3b1f2-4118-4e99-819b-b191286102e0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": ".../withdrawFunds/{id}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\":90\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/v1/withdrawFunds/971222cc-0061-4d4b-a642-9936c8536a90",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"withdrawFunds",
+								"971222cc-0061-4d4b-a642-9936c8536a90"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": ".../closeBankAccount/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/v1/closeBankAccount/e4b4aaf5-931a-4ecf-870b-cdda609ced75",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"closeBankAccount",
+								"e4b4aaf5-931a-4ecf-870b-cdda609ced75"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/restoreReadDb",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/v1/restoreReadDb",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"restoreReadDb"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "queries-api",
+			"item": [
+				{
+					"name": ".../bankAccountLookup/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5001/api/v1/bankAccountLookup/",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"v1",
+								"bankAccountLookup",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": ".../bankAccountLookup/byId/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5001/api/v1/bankAccountLookup/byId/77760a4b-8c81-4a85-8ee5-6c6d55c871f8",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"v1",
+								"bankAccountLookup",
+								"byId",
+								"77760a4b-8c81-4a85-8ee5-6c6d55c871f8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": ".../bankAccountLookup/byHolder/{accountHolder}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5001/api/v1/bankAccountLookup/byHolder/Bill Gates",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"v1",
+								"bankAccountLookup",
+								"byHolder",
+								"Bill Gates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": ".../bankAccountLookup/withBalance/{equalityType}/{balance}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5001/api/v1/bankAccountLookup/withBalance/GREATER_THAN/500",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"v1",
+								"bankAccountLookup",
+								"withBalance",
+								"GREATER_THAN",
+								"500"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": ".../bankAccountLookup/withBalance/LESS_THAN/{balance}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5001/api/v1/bankAccountLookup/withBalance/LESS_THAN/50",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"v1",
+								"bankAccountLookup",
+								"withBalance",
+								"LESS_THAN",
+								"50"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
